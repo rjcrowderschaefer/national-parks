@@ -1,0 +1,12 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 30px;
+}
+
+.card-image {
+    width: 350px;
+    height: auto;
+    display: block;
+}

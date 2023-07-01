@@ -8,7 +8,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+        <script src="{% static 'scripts/main.js' %}" defer></script>
     </head>
     <body>
         <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -35,12 +37,15 @@
                 </a>
           
                 <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link">
+                  <a class="navbar-link" href="/states">
                     States
                   </a>
                   <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/states/alabama">
+                        Alabama
+                      </a>
                     <a class="navbar-item" href="/states/alaska">
-                      Alaka
+                      Alaska
                     </a>
                     <a class="navbar-item" href="/states/arizona">
                       Arizona
@@ -54,42 +59,87 @@
                     <a class="navbar-item" href="/states/colorado">
                       Colorado
                     </a>
+                    <a class="navbar-item" href="/states/connecticut">
+                        Connecticut
+                      </a>
+                    <a class="navbar-item" href="/states/delaware">
+                        Delaware
+                      </a>
+                    <a class="navbar-item" href="/states/dc">
+                        District of Columbia
+                      </a> 
                     <a class="navbar-item" href="/states/florida">
                       Florida
                     </a>
+                    <a class="navbar-item" href="/states/Georgia">
+                        Georgia
+                      </a>
                     <a class="navbar-item" href="/states/hawaii">
                       Hawaii
                     </a>
                     <a class="navbar-item" href="/states/idaho">
                       Idaho
                     </a>
+                    <a class="navbar-item" href="/states/illinois">
+                        Illinois
+                      </a>
                     <a class="navbar-item" href="/states/indiana">
                       Indiana
                     </a>
+                    <a class="navbar-item" href="/states/iowa">
+                        Iowa
+                      </a>
+                    <a class="navbar-item" href="/states/kansas">
+                        Kansas
+                      </a>
                     <a class="navbar-item" href="/states/kentucky">
                       Kentucky
                     </a>
+                    <a class="navbar-item" href="/states/louisiana">
+                        Louisiana
+                      </a>
                     <a class="navbar-item" href="/states/maine">
                       Maine
                     </a>
+                    <a class="navbar-item" href="/states/maryland">
+                        Maryland
+                      </a>
+                    <a class="navbar-item" href="/states/massachusetts">
+                        Massachusetts
+                      </a>
                     <a class="navbar-item" href="/states/michigan">
                       Michigan
                     </a>
                     <a class="navbar-item" href="/states/minnesota">
                       Minnesota
                     </a>
+                    <a class="navbar-item" href="/states/mississippi">
+                        Mississippi
+                      </a>
                     <a class="navbar-item" href="/states/missouri">
                       Missouri
                     </a>
                     <a class="navbar-item" href="/states/montana">
                       Montana
                     </a>
+                    <a class="navbar-item" href="/states/nebraska">
+                        Nebraska
+                      </a>
                     <a class="navbar-item" href="/states/nevada">
                       Nevada
                     </a>
+                    <a class="navbar-item" href="/states/new-hampshire">
+                        New Hampshire
+                      </a>
+                    <a class="navbar-item" href="/states/new-jersey">
+                        New Jersey
+                      </a>
                     <a class="navbar-item" href="/states/new-mexico">
                       New Mexico
                     </a>
+                    <a class="navbar-item" href="/states/new-york">
+                        New York
+                      </a>
                     <a class="navbar-item" href="/states/north-carolina">
                       North Carolina
                     </a>
@@ -99,9 +149,18 @@
                     <a class="navbar-item" href="/states/ohio">
                       Ohio
                     </a>
+                    <a class="navbar-item" href="/states/oklahoma">
+                        Oklahoma
+                      </a>
                     <a class="navbar-item" href="/states/oregon">
                       Oregon
                     </a>
+                    <a class="navbar-item" href="/states/pennsylvania">
+                        Pennsylvania
+                      </a>
+                      <a class="navbar-item" href="/states/rhode-island">
+                        Rhode Island
+                      </a>
                     <a class="navbar-item" href="/states/south-carolina">
                       South Carolina
                     </a>
@@ -117,6 +176,9 @@
                     <a class="navbar-item" href="/states/utah">
                       Utah
                     </a>
+                    <a class="navbar-item" href="/states/vermont">
+                        Vermont
+                      </a>
                     <a class="navbar-item" href="/states/virginia">
                       Virginia
                     </a>
@@ -126,27 +188,40 @@
                     <a class="navbar-item" href="/states/west-virginia">
                       West Virginia
                     </a>
+                    <a class="navbar-item" href="/states/wisconsin">
+                        Wisconsin
+                      </a>
                     <a class="navbar-item" href="/states/wyoming">
                       Wyoming
                     </a>
-                    <hr class="navbar-divider">
-                    <a class="navbar-item">
-                      Add New Park
-                    </a>
+                    
                 </div>
                 </div>
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
+                <a class="navbar-link" href="/territories">
                 Territories
                 </a>
                 <div class="navbar-dropdown">
                     <a class="navbar-item" href="/territories/american-samoa">
                     American Samoa
                     </a>
+                    <a class="navbar-item" href="/territories/guam">
+                        Guam
+                    </a>
+                    <a class="navbar-item" href="/territories/northern-mariana-islands">
+                        Northern Mariana Islands
+                    </a>
+                    <a class="navbar-item" href="/territories/puerto-rico">
+                        Puerto Rico
+                    </a>
                     <a class="navbar-item" href="/territories/virgin-islands">
                     U.S. Virgin Islands
                     </a>  
             </div>
+            <a class="navbar-item" href="/">
+                Add New Park
+              </a>
+        
               <div class="navbar-end">
                 <!-- <div class="navbar-item">
                   <div class="buttons">
@@ -161,7 +236,6 @@
               </div>
             </div>
           </nav>
-        
-        <script src="" async defer></script>
+          <div class="container">{% block content %}{% endblock %}</div>
     </body>
 </html>
