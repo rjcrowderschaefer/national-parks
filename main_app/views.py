@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import State, Territory
+from .models import State, Territory, Place
 
 # Create your views here.
 
@@ -70,4 +70,13 @@ class TerritoryList(TemplateView):
         else:
             context["territories"] = Territory.objects.all()
             context["header"] = "Territories with National Parks"
+        return context
+    
+
+class PlaceList(TemplateView):
+    template_name = "places.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["places"] = Place.objects.all()
         return context
