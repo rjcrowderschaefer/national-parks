@@ -1,0 +1,167 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>U.S. National Parks - {% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">
+                <img src="https://www.nps.gov/theme/assets/dist/images/branding/logo.png" width="25" height="28"><b>National Park Service</b>
+              </a>
+          
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                  Home
+                </a>
+          
+                <a class="navbar-item" href="/about">
+                  About
+                </a>
+          
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    States
+                  </a>
+                  <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/states/alaska">
+                      Alaka
+                    </a>
+                    <a class="navbar-item" href="/states/arizona">
+                      Arizona
+                    </a>
+                    <a class="navbar-item" href="/states/arkansas">
+                      Arkansas
+                    </a>
+                    <a class="navbar-item" href="/states/california">
+                      California
+                    </a>
+                    <a class="navbar-item" href="/states/colorado">
+                      Colorado
+                    </a>
+                    <a class="navbar-item" href="/states/florida">
+                      Florida
+                    </a>
+                    <a class="navbar-item" href="/states/hawaii">
+                      Hawaii
+                    </a>
+                    <a class="navbar-item" href="/states/idaho">
+                      Idaho
+                    </a>
+                    <a class="navbar-item" href="/states/indiana">
+                      Indiana
+                    </a>
+                    <a class="navbar-item" href="/states/kentucky">
+                      Kentucky
+                    </a>
+                    <a class="navbar-item" href="/states/maine">
+                      Maine
+                    </a>
+                    <a class="navbar-item" href="/states/michigan">
+                      Michigan
+                    </a>
+                    <a class="navbar-item" href="/states/minnesota">
+                      Minnesota
+                    </a>
+                    <a class="navbar-item" href="/states/missouri">
+                      Missouri
+                    </a>
+                    <a class="navbar-item" href="/states/montana">
+                      Montana
+                    </a>
+                    <a class="navbar-item" href="/states/nevada">
+                      Nevada
+                    </a>
+                    <a class="navbar-item" href="/states/new-mexico">
+                      New Mexico
+                    </a>
+                    <a class="navbar-item" href="/states/north-carolina">
+                      North Carolina
+                    </a>
+                    <a class="navbar-item" href="/states/north-dakota">
+                      North Dakota
+                    </a>
+                    <a class="navbar-item" href="/states/ohio">
+                      Ohio
+                    </a>
+                    <a class="navbar-item" href="/states/oregon">
+                      Oregon
+                    </a>
+                    <a class="navbar-item" href="/states/south-carolina">
+                      South Carolina
+                    </a>
+                    <a class="navbar-item" href="/states/south-dakota">
+                      South Dakota
+                    </a>
+                    <a class="navbar-item" href="/states/tennessee">
+                      Tennessee
+                    </a>
+                    <a class="navbar-item" href="/states/texas">
+                      Texas
+                    </a>
+                    <a class="navbar-item" href="/states/utah">
+                      Utah
+                    </a>
+                    <a class="navbar-item" href="/states/virginia">
+                      Virginia
+                    </a>
+                    <a class="navbar-item" href="/states/washington">
+                      Washington
+                    </a>
+                    <a class="navbar-item" href="/states/west-virginia">
+                      West Virginia
+                    </a>
+                    <a class="navbar-item" href="/states/wyoming">
+                      Wyoming
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                      Add New Park
+                    </a>
+                </div>
+                </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                Territories
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="/territories/american-samoa">
+                    American Samoa
+                    </a>
+                    <a class="navbar-item" href="/territories/virgin-islands">
+                    U.S. Virgin Islands
+                    </a>  
+            </div>
+              <div class="navbar-end">
+                <!-- <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-primary">
+                      <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light">
+                      Log in
+                    </a>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </nav>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
