@@ -3,6 +3,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import State, Territory, Place
+from django.views.generic import DetailView
 
 # Create your views here.
 
@@ -58,6 +59,10 @@ class StateList(TemplateView):
             context["header"] = "States with National Parks"
         return context
     
+class StateDetail(DetailView):
+    model = State
+    template_name = "state_detail.html"
+
 class TerritoryList(TemplateView):
     template_name = "territories_list.html"
 
@@ -71,7 +76,10 @@ class TerritoryList(TemplateView):
             context["territories"] = Territory.objects.all()
             context["header"] = "Territories with National Parks"
         return context
-    
+
+class TerritoryDetail(DetailView):
+    model = Territory
+    template_name = "territory_detail.html"
 
 class PlaceList(TemplateView):
     template_name = "places.html"
@@ -80,3 +88,4 @@ class PlaceList(TemplateView):
         context = super().get_context_data(**kwargs)
         context["places"] = Place.objects.all()
         return context
+    
