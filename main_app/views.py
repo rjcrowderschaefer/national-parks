@@ -51,9 +51,11 @@ class StateList(TemplateView):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
         if name != None:
-            context['states'] = State.objects.filter(name__icontains=name)
+            context["states"] = State.objects.filter(name__icontains=name)
+            context["header"] = f"Searching for {name}"
         else:
-            context['states'] = State.objects.all()
+            context["states"] = State.objects.all()
+            context["header"] = "States with National Parks"
         return context
     
 class TerritoryList(TemplateView):
@@ -63,7 +65,9 @@ class TerritoryList(TemplateView):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
         if name != None:
-            context['territories'] = Territory.objects.filter(name__icontains=name)
+            context["territories"] = Territory.objects.filter(name__icontains=name)
+            context["header"] = f"Searching for {name}"
         else:
             context["territories"] = Territory.objects.all()
+            context["header"] = "Territories with National Parks"
         return context
