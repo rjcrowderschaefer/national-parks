@@ -19,6 +19,27 @@
             </span>
         </a>
     </div>
+  <div class=" mb-5">
+    <h3 class="title is-3">Parks</h3>
+
+    {% for place in state.places.all %}
+    <div class="place">
+      <!-- <span>{{forloop.counter}}</span> -->
+      <span>{{place.placetype}}</span><br />
+      <span><b>{{place.name}}</b></span><br />
+      <span>{{place.description}}</span><br />
+      <hr>
+    </div>
+		{% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No Places Available</p>
+      </div>
+    </article>
+
+    {% endfor %}
+  </div>
+<!--  above about section  -->
     <!-- <div class="detail__about">
         <h4 class="title is-4">About</h4>
         <p>{{state.bio}}</p>

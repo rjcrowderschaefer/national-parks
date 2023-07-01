@@ -36,3 +36,13 @@ class Place(models.Model):
 
     def __str__(self):
         return self.name
+    
+class PlaceTerritory(models.Model):
+
+    name = models.CharField(max_length=150)
+    placetype = models.CharField(max_length=100)
+    description = models.TextField(max_length=500)
+    territory = models.ForeignKey(Territory, on_delete=models.CASCADE, related_name="territoryplaces")
+
+    def __str__(self):
+        return self.name
