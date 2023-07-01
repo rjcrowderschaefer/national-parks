@@ -14,7 +14,6 @@ class State(models.Model):
     class Meta:
         ordering = ['name']
 
-
 class Territory(models.Model):
 
     name = models.CharField(max_length=100)
@@ -30,6 +29,7 @@ class Territory(models.Model):
 class Place(models.Model):
 
     name = models.CharField(max_length=150)
+    image = models.CharField(max_length=500, default='-')
     placetype = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     state = models.ForeignKey(State, on_delete=models.CASCADE, related_name="places")
@@ -40,6 +40,7 @@ class Place(models.Model):
 class PlaceTerritory(models.Model):
 
     name = models.CharField(max_length=150)
+    image = models.CharField(max_length=500, default='-')
     placetype = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     territory = models.ForeignKey(Territory, on_delete=models.CASCADE, related_name="territoryplaces")

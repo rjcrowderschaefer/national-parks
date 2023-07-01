@@ -25,6 +25,7 @@
     {% for territoryplace in territory.territoryplaces.all %}
     <div class="place">
       <!-- <span>{{forloop.counter}}</span> -->
+      <span><img src="{{territoryplace.image}}"></span><br />
       <span>{{territoryplace.placetype}}</span><br />
       <span><b>{{territoryplace.name}}</b></span><br />
       <span>{{territoryplace.description}}</span><br />

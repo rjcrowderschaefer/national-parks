@@ -40,159 +40,11 @@
                     States
                   </a>
                   <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/states/alabama">
-                        Alabama
+                    {% for state in states %}
+                    <a class="navbar-item" href="{% url 'state_detail' state.pk %}">
+                        {{state.name}}
                       </a>
-                    <a class="navbar-item" href="/states/alaska">
-                      Alaska
-                    </a>
-                    <a class="navbar-item" href="/states/arizona">
-                      Arizona
-                    </a>
-                    <a class="navbar-item" href="/states/arkansas">
-                      Arkansas
-                    </a>
-                    <a class="navbar-item" href="/states/california">
-                      California
-                    </a>
-                    <a class="navbar-item" href="/states/colorado">
-                      Colorado
-                    </a>
-                    <a class="navbar-item" href="/states/connecticut">
-                        Connecticut
-                      </a>
-                    <a class="navbar-item" href="/states/delaware">
-                        Delaware
-                      </a>
-                    <a class="navbar-item" href="/states/dc">
-                        District of Columbia
-                      </a> 
-                    <a class="navbar-item" href="/states/florida">
-                      Florida
-                    </a>
-                    <a class="navbar-item" href="/states/Georgia">
-                        Georgia
-                      </a>
-                    <a class="navbar-item" href="/states/hawaii">
-                      Hawaii
-                    </a>
-                    <a class="navbar-item" href="/states/idaho">
-                      Idaho
-                    </a>
-                    <a class="navbar-item" href="/states/illinois">
-                        Illinois
-                      </a>
-                    <a class="navbar-item" href="/states/indiana">
-                      Indiana
-                    </a>
-                    <a class="navbar-item" href="/states/iowa">
-                        Iowa
-                      </a>
-                    <a class="navbar-item" href="/states/kansas">
-                        Kansas
-                      </a>
-                    <a class="navbar-item" href="/states/kentucky">
-                      Kentucky
-                    </a>
-                    <a class="navbar-item" href="/states/louisiana">
-                        Louisiana
-                      </a>
-                    <a class="navbar-item" href="/states/maine">
-                      Maine
-                    </a>
-                    <a class="navbar-item" href="/states/maryland">
-                        Maryland
-                      </a>
-                    <a class="navbar-item" href="/states/massachusetts">
-                        Massachusetts
-                      </a>
-                    <a class="navbar-item" href="/states/michigan">
-                      Michigan
-                    </a>
-                    <a class="navbar-item" href="/states/minnesota">
-                      Minnesota
-                    </a>
-                    <a class="navbar-item" href="/states/mississippi">
-                        Mississippi
-                      </a>
-                    <a class="navbar-item" href="/states/missouri">
-                      Missouri
-                    </a>
-                    <a class="navbar-item" href="/states/montana">
-                      Montana
-                    </a>
-                    <a class="navbar-item" href="/states/nebraska">
-                        Nebraska
-                      </a>
-                    <a class="navbar-item" href="/states/nevada">
-                      Nevada
-                    </a>
-                    <a class="navbar-item" href="/states/new-hampshire">
-                        New Hampshire
-                      </a>
-                    <a class="navbar-item" href="/states/new-jersey">
-                        New Jersey
-                      </a>
-                    <a class="navbar-item" href="/states/new-mexico">
-                      New Mexico
-                    </a>
-                    <a class="navbar-item" href="/states/new-york">
-                        New York
-                      </a>
-                    <a class="navbar-item" href="/states/north-carolina">
-                      North Carolina
-                    </a>
-                    <a class="navbar-item" href="/states/north-dakota">
-                      North Dakota
-                    </a>
-                    <a class="navbar-item" href="/states/ohio">
-                      Ohio
-                    </a>
-                    <a class="navbar-item" href="/states/oklahoma">
-                        Oklahoma
-                      </a>
-                    <a class="navbar-item" href="/states/oregon">
-                      Oregon
-                    </a>
-                    <a class="navbar-item" href="/states/pennsylvania">
-                        Pennsylvania
-                      </a>
-                      <a class="navbar-item" href="/states/rhode-island">
-                        Rhode Island
-                      </a>
-                    <a class="navbar-item" href="/states/south-carolina">
-                      South Carolina
-                    </a>
-                    <a class="navbar-item" href="/states/south-dakota">
-                      South Dakota
-                    </a>
-                    <a class="navbar-item" href="/states/tennessee">
-                      Tennessee
-                    </a>
-                    <a class="navbar-item" href="/states/texas">
-                      Texas
-                    </a>
-                    <a class="navbar-item" href="/states/utah">
-                      Utah
-                    </a>
-                    <a class="navbar-item" href="/states/vermont">
-                        Vermont
-                      </a>
-                    <a class="navbar-item" href="/states/virginia">
-                      Virginia
-                    </a>
-                    <a class="navbar-item" href="/states/washington">
-                      Washington
-                    </a>
-                    <a class="navbar-item" href="/states/west-virginia">
-                      West Virginia
-                    </a>
-                    <a class="navbar-item" href="/states/wisconsin">
-                        Wisconsin
-                      </a>
-                    <a class="navbar-item" href="/states/wyoming">
-                      Wyoming
-                    </a>
+                      {% endfor %}       
                 </div>
                 </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -200,21 +52,12 @@
                 Territories
                 </a>
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/territories/american-samoa">
-                    American Samoa
+                    {% for territory in territories %}
+                    <a class="navbar-item" href="{% url 'territory_detail' territory.pk %}">
+                        {{territory.name}}
                     </a>
-                    <a class="navbar-item" href="/territories/guam">
-                        Guam
-                    </a>
-                    <a class="navbar-item" href="/territories/northern-mariana-islands">
-                        Northern Mariana Islands
-                    </a>
-                    <a class="navbar-item" href="/territories/puerto-rico">
-                        Puerto Rico
-                    </a>
-                    <a class="navbar-item" href="/territories/virgin-islands">
-                    U.S. Virgin Islands
-                    </a>  
+                    {% endfor %}
+                </div>
             </div>
             <a class="navbar-item" href="/">
                 Add New Park

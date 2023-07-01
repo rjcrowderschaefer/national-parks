@@ -7,11 +7,32 @@ from django.views.generic import DetailView
 
 # Create your views here.
 
+# class Base(TemplateView):
+#     template_name="base.html"
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["states"] = State.objects.all()
+#         context['territories'] = Territory.objects.all()
+#         return context
+
 class Home(TemplateView):
     template_name = "home.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["states"] = State.objects.all()
+        context['territories'] = Territory.objects.all()
+        return context
+
 class About(TemplateView):
     template_name = "about.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["states"] = State.objects.all()
+        context["territories"] = Territory.objects.all()
+        return context
 
 # class State:
 #     def __init__(self, name, image, parknum):
@@ -63,6 +84,12 @@ class StateDetail(DetailView):
     model = State
     template_name = "state_detail.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["states"] = State.objects.all()
+        context["territories"] = Territory.objects.all()
+        return context
+
 class TerritoryList(TemplateView):
     template_name = "territories_list.html"
 
@@ -80,6 +107,12 @@ class TerritoryList(TemplateView):
 class TerritoryDetail(DetailView):
     model = Territory
     template_name = "territory_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["states"] = State.objects.all()
+        context["territories"] = Territory.objects.all()
+        return context
 
 class PlaceList(TemplateView):
     template_name = "places.html"

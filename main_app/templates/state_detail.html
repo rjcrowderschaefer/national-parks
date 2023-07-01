@@ -25,6 +25,7 @@
     {% for place in state.places.all %}
     <div class="place">
       <!-- <span>{{forloop.counter}}</span> -->
+      <span><img src="{{place.image}}"></span><br />
       <span>{{place.placetype}}</span><br />
       <span><b>{{place.name}}</b></span><br />
       <span>{{place.description}}</span><br />
