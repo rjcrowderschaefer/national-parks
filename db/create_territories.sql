@@ -13,3 +13,7 @@ INSERT INTO main_app_territory(name, image, parknum)
 INSERT INTO main_app_territory(name, image, parknum)
     VALUES
         ('U.S. Virgin Islands', 'https://i.pinimg.com/736x/68/65/7f/68657fcca545131de3cd448bd35f9272.jpg', '5');
+
+INSERT INTO main_app_territory(name, image, parknum)
+    VALUES
+        ('Northern Mariana Islands', 'https://i.ebayimg.com/images/g/vDcAAOSwM95i5fkv/s-l1600.jpg', '1');
