@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import State, Territory, Place
+from .models import State, Territory, Place, PlaceTerritory
 from django.views.generic import DetailView
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 
@@ -71,6 +72,7 @@ class StateList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["territories"] = Territory.objects.all()
         name = self.request.GET.get("name")
         if name != None:
             context["states"] = State.objects.filter(name__icontains=name)
@@ -114,11 +116,36 @@ class TerritoryDetail(DetailView):
         context["territories"] = Territory.objects.all()
         return context
 
-class PlaceList(TemplateView):
-    template_name = "places.html"
+# class PlaceList(TemplateView):
+#     template_name = "places_list.html"
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["places"] = Place.objects.all()
+#         context["states"] = State.objects.all()
+#         context["territories"] = Territory.objects.all()
+#         return context
+    
+class PlaceCreate(CreateView):
+    model = Place
+    fields = ['name', 'image', 'placetype', 'description', 'state']
+    template_name = "place_create.html"
+    success_url = "/states/"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["places"] = Place.objects.all()
+        context["states"] = State.objects.all()
+        context["territories"] = Territory.objects.all()
         return context
-    
+
+class PlaceTerritoryCreate(CreateView):
+    model = PlaceTerritory
+    fields = ['name', 'image', 'placetype', 'description', 'territory']
+    template_name = "place_territory_create.html"
+    success_url = "/territories/"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["states"] = State.objects.all()
+        context["territories"] = Territory.objects.all()
+        return context
