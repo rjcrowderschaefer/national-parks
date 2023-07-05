@@ -47,3 +47,11 @@ class PlaceTerritory(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Featured(models.Model):
+
+    # name = models.CharField(max_length=100)
+    places = models.ManyToManyField(Place)
+
+    def __class__(self):
+        return self.places

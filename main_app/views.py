@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import State, Territory, Place, PlaceTerritory
+from .models import State, Territory, Place, PlaceTerritory, Featured
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
@@ -12,6 +12,7 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["featured"] = Featured.objects.all()
         context["states"] = State.objects.all()
         context['territories'] = Territory.objects.all()
         return context
@@ -137,3 +138,24 @@ class PlaceTerritoryCreate(CreateView):
         context["states"] = State.objects.all()
         context["territories"] = Territory.objects.all()
         return context
+    
+# class RecommendStatePlaceCreate(TemplateView):
+#     template_name = "recommend_state_place_create.html"
+
+#     def post(self, request, pk):
+#         name = request.POST.get('name')
+#         image = request.POST.get('image')
+#         placetype = request.POST.get('placetype')
+#         description = request.POST.get('description')
+#         state = State.objects.get(pk=pk)
+#         Place.objects.create(name=name, image=image, placetype=placetype, description=description, state=state)
+#         return redirect ('state_detail', pk=pk)
+
+class FeaturedPlaceAssoc(View):
+    def get(self, request, pk, place_pk):
+        assoc = request.GET.get("assoc")
+        if assoc == "remove":
+            Featured.objects.get(pk=pk).places.remove(place_pk)
+        if assoc == "add":
+            Featured.objects.get(pk=pk).places.add(place_pk)
+        return redirect('home')

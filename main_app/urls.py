@@ -14,5 +14,7 @@ urlpatterns = [
     path('territories/<int:pk>/delete', views.TerritoryDelete.as_view(), name="territory_delete"),
     # path('places/', views.PlaceList.as_view(), name='place_list'),
     path('states/new/', views.PlaceCreate.as_view(), name="place_create"),
-    path('territories/new/', views.PlaceTerritoryCreate.as_view(), name="place_territory_create")
+    path('territories/new/', views.PlaceTerritoryCreate.as_view(), name="place_territory_create"),
+    # path('recommend-state-place/', views.RecommendStatePlaceCreate.as_view(), name="recommend_state_place_create")
+    path('featured/<int:pk>/places/<int:place_pk>/', views.FeaturedPlaceAssoc.as_view(), name='featured_place_assoc')
 ]

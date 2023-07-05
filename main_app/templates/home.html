@@ -1,11 +1,34 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
+<div class="home__playlists">
 
-<h3>Come outside and explore</h3>
-<h1>Great Outdoors Month</h1>
-<button>Start Your Adventure</button>
+    <h3 class="title is-3 has-text-success">Featured Parks</h3>
+    {% for featured in featured %}
 
-<a href="/states">Find a Park</a>
+        <div class="playlist mb-5">
+           
 
+            {% for place in featured.places.all %}
+
+                <div class="place">
+                    <img src="{{place.image}}" alt="image of {{place.name}}"><br />
+                    <span><b>{{place.name}}</b></span><br />
+                    <span>{{place.placetype}}</span><br />
+                    <span>{{place.state}}</span><br />
+                    <span>{{place.description}}</span>
+                    <span>
+                        <a href="{% url 'featured_place_assoc' featured.pk place.pk %}?assoc=remove" class="button is-danger is-outlined">
+                            <span class="icon is-small">
+                                <i class="fas fa-times"></i>
+                            </span>    
+                            </a>
+                    </span>        
+                    <hr />
+            {% endfor %}
+        </div>
+    {% empty %} 
+        <div class="playlist mb-5">"There are no places to feature"</div>
+    {% endfor %}
+</div>
 {% endblock %}
