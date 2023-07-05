@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import State, Territory, Place, PlaceTerritory
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 
 class Home(TemplateView):
@@ -58,6 +58,11 @@ class StateUpdate(UpdateView):
     def get_success_url(self):
         return reverse('state_detail', kwargs={'pk': self.object.pk})
 
+class StateDelete(DeleteView):
+    model = State
+    template_name = "state_delete_confirmation.html"
+    success_url = "/states/"
+
 class TerritoryList(TemplateView):
     template_name = "territories_list.html"
 
@@ -91,6 +96,11 @@ class TerritoryUpdate(UpdateView):
     def get_success_url(self):
         return reverse('territory_detail', kwargs={'pk': self.object.pk})
 
+class TerritoryDelete(DeleteView):
+    model = Territory
+    template_name = "territory_delete_confirmation.html"
+    success_url = "/territories/"
+
 # class PlaceList(TemplateView):
 #     template_name = "places_list.html"
 
@@ -106,6 +116,7 @@ class PlaceCreate(CreateView):
     fields = ['name', 'image', 'placetype', 'description', 'state']
     template_name = "place_create.html"
     success_url = "/states/"
+    # How do I reroute to the state detail page when adding a new place? I think I need to use the state's fk instead of pk.
     # def get_success_url(State):
     #     return reverse('state_detail', kwargs={'pk': State.object.pk})
     
