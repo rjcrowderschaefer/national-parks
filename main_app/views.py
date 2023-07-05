@@ -4,18 +4,7 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import State, Territory, Place, PlaceTerritory
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView
-
-# Create your views here.
-
-# class Base(TemplateView):
-#     template_name="base.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["states"] = State.objects.all()
-#         context['territories'] = Territory.objects.all()
-#         return context
+from django.views.generic.edit import CreateView, UpdateView
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -34,38 +23,6 @@ class About(TemplateView):
         context["states"] = State.objects.all()
         context["territories"] = Territory.objects.all()
         return context
-
-# class State:
-#     def __init__(self, name, image, parknum):
-#         self.name = name
-#         self.image = image
-#         self.parknum = parknum
-
-# class Territory:
-#     def __init__(self, name, image, parknum):
-#         self.name = name
-#         self.image = image
-#         self.parknum = parknum
-
-# class Park:
-#     def __init__(self, name, image, parktype, location, description):
-#         self.name = name
-#         self.image = image
-#         self.parktype = parktype
-#         self.image = location
-#         self.description = description
-
-# states = [
-#     State('Alaska', 'https://ivintageimages.com/cdn/shop/products/QBSTLL_002-webscan_40c57991-2448-4d8a-8c13-fef824796087_1024x1024@2x.jpg?v=1617294483', 23),
-#     State('Arizona', 'https://ivintageimages.com/cdn/shop/products/QBSTLL_003-webscan_1024x1024@2x.jpg?v=1554321905', 22),
-#     State('California', 'https://ivintageimages.com/cdn/shop/products/QBSTLL_005-webscan_1024x1024@2x.jpg?v=1554322013', 28),
-#     State('Colorado', 'https://ivintageimages.com/cdn/shop/products/QBSTLL_006-webscan_1024x1024@2x.jpg?v=1554322100', 13),
-# ]
-
-# territories = [
-#     Territory('American Samoa', 'https://i.etsystatic.com/27583120/r/il/ae2bdc/2840534200/il_794xN.2840534200_4nt9.jpg', 1),
-#     Territory('Guam', 'https://www.squadronposters.com/wp-content/uploads/Apra_Harbor_Guam_Sub_16x20_SP00921Mfeatured-aircraft-lithograph-vintage-airplane-poster.jpg', 1),
-# ]
 
 class StateList(TemplateView):
     template_name = "states_list.html"
@@ -91,12 +48,19 @@ class StateDetail(DetailView):
         context["states"] = State.objects.all()
         context["territories"] = Territory.objects.all()
         return context
+    
+class StateUpdate(UpdateView):
+    model = State
+    fields = ['name', 'image', 'parknum']
+    template_name = "state_update.html"
+    success_url = "/artists"
 
 class TerritoryList(TemplateView):
     template_name = "territories_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["states"] = State.objects.all()
         name = self.request.GET.get("name")
         if name != None:
             context["territories"] = Territory.objects.filter(name__icontains=name)
