@@ -5,6 +5,7 @@ from django.views.generic.base import TemplateView
 from .models import State, Territory, Place, PlaceTerritory
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView
+from django.urls import reverse
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -53,7 +54,9 @@ class StateUpdate(UpdateView):
     model = State
     fields = ['name', 'image', 'parknum']
     template_name = "state_update.html"
-    success_url = "/artists"
+    
+    def get_success_url(self):
+        return reverse('state_detail', kwargs={'pk': self.object.pk})
 
 class TerritoryList(TemplateView):
     template_name = "territories_list.html"
@@ -79,6 +82,14 @@ class TerritoryDetail(DetailView):
         context["states"] = State.objects.all()
         context["territories"] = Territory.objects.all()
         return context
+    
+class TerritoryUpdate(UpdateView):
+    model = Territory
+    fields = ['name', 'image', 'parknum']
+    template_name = "territory_update.html"
+
+    def get_success_url(self):
+        return reverse('territory_detail', kwargs={'pk': self.object.pk})
 
 # class PlaceList(TemplateView):
 #     template_name = "places_list.html"
@@ -95,7 +106,9 @@ class PlaceCreate(CreateView):
     fields = ['name', 'image', 'placetype', 'description', 'state']
     template_name = "place_create.html"
     success_url = "/states/"
-
+    # def get_success_url(State):
+    #     return reverse('state_detail', kwargs={'pk': State.object.pk})
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["states"] = State.objects.all()
