@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<div class="home__playlists">
-
+<section class="homepage">
+    <header>
+        <img id="hero" src="https://www.nps.gov/cany/planyourvisit/images/Milky-Way-Tents-Cropped.jpg?maxwidth=1300&maxheight=1300&autorotate=false" alt="tents under stars">
+        <h3 class="h3-home">Enjoying the great outdoors</h3>
+        <h1 class="h1-home">Camp Under The Stars</h1>
+    </header>
     <h3 class="title is-3 has-text-success">Featured Parks</h3>
     {% for featured in featured %}
 
@@ -30,5 +34,6 @@
     {% empty %} 
         <div class="playlist mb-5">"There are no places to feature"</div>
     {% endfor %}
-</div>
+</section>
+
 {% endblock %}
